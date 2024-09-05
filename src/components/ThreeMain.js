@@ -25,8 +25,8 @@ function ThreeMain() {
 
     // Camera setup
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(-5, 5, 18);
-    camera.lookAt(0, 10, 0);
+    camera.position.set(-10, 3, 18);
+    camera.lookAt(0, -16, 0);
     cameraRef.current = camera;
 
     // Orbit Controls
@@ -45,8 +45,8 @@ function ThreeMain() {
     loader.load('thescene.glb', function (glb) {
       const assetone = glb.scene;
       scene.add(assetone);
-      assetone.position.set(0, -3, 0); // Adjust position
-      assetone.scale.set(0.4, 0.4, 0.4);
+      assetone.position.set(-0.5, -5, 4); // Adjust position
+      assetone.scale.set(0.015, 0.02, 0.015);
       assetone.rotation.y = 0.6;
 
       if (glb.animations.length > 0) {
@@ -62,16 +62,16 @@ function ThreeMain() {
 
     // Load Custom Font and create 3D text letter by letter
     const fontLoader = new FontLoader();
-    fontLoader.load('Oswald_Regular.json', function (font) {
+    fontLoader.load('coolfont.json', function (font) {
       const text = "Boost your business now!";
       const letterSpacing = 0.08;  // Default letter spacing
-      let currentXOffset = 3.2;   // Start position for x
+      let currentXOffset = 2;   // Start position for x
       let currentYOffset = 3.2;   // Start position for y
       let letterIndex = 0;
 
       const maxLineLength = 10;   // Max number of characters in a line before wrapping
-      const frontMaterial = new THREE.MeshPhongMaterial({ color: 0x0982d9 });
-      const sideMaterial = new THREE.MeshPhongMaterial({ color: 0xe0f2ff });
+      const frontMaterial = new THREE.MeshPhongMaterial({ color: 0x4061d6 });
+      const sideMaterial = new THREE.MeshPhongMaterial({ color: 0xffe791});
       const topMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 });
 
       function addLetter() {
@@ -87,7 +87,7 @@ function ThreeMain() {
 
           const letterGeometry = new TextGeometry(letter, {
             font: font,
-            size: 0.6,
+            size: 0.7,
             depth: 0.2,
             curveSegments: 12,
             bevelEnabled: true,
@@ -144,8 +144,9 @@ function ThreeMain() {
       if (cameraRef.current) {
         const scrollY = window.scrollY;
         cameraRef.current.position.z = 18 - scrollY * 0.03;
+        cameraRef.current.position.x = -10 + scrollY * 0.08;
         cameraRef.current.lookAt.x = 0 - scrollY * 0.08;
-        cameraRef.current.lookAt.y = 8 - scrollY * 0.08;
+        cameraRef.current.lookAt.y = 8 - scrollY * 2;
         cameraRef.current.lookAt.z = 0 - scrollY * 0.03;
         cameraRef.current.updateProjectionMatrix();
       }
