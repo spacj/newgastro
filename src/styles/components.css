@@ -1,0 +1,30 @@
+.aboutus h3{
+  background-color: #d6eeff;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #062033;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  text-align: center;
+  font-style: normal;
+  font-size: 18pt;
+  padding: 7vw 2vh;
+}
+
+footer{
+    background-color: #d6eeff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.logo{
+    max-width: 60%;
+    position: relative;
+    top: 3vh;
+    padding-bottom: 4vh;
+  }
