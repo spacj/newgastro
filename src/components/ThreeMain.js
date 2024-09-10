@@ -42,12 +42,12 @@ function ThreeMain() {
 
     // Load models
     const loader = new GLTFLoader();
-    loader.load('thescene.glb', function (glb) {
+    loader.load('donut_cafe.glb', function (glb) {
       const assetone = glb.scene;
       scene.add(assetone);
-      assetone.position.set(-0.5, -5, 4); // Adjust position
-      assetone.scale.set(0.015, 0.02, 0.015);
-      assetone.rotation.y = 0.6;
+      assetone.position.set(0, -4, 0); // Adjust position
+      assetone.scale.set(40, 50, 50);
+      assetone.rotation.y = Math.PI;
 
       if (glb.animations.length > 0) {
         glb.animations.forEach((clip) => {
@@ -143,11 +143,12 @@ function ThreeMain() {
     const handleScroll = () => {
       if (cameraRef.current) {
         const scrollY = window.scrollY;
-        cameraRef.current.position.z = 18 - scrollY * 0.03;
-        cameraRef.current.position.x = -10 + scrollY * 0.08;
+        cameraRef.current.position.z = 18 - scrollY * 0.01;
+        cameraRef.current.position.x = -10 + scrollY * 0.04;
+        cameraRef.current.position.y = 3 + scrollY * 0.01;
         cameraRef.current.lookAt.x = 0 - scrollY * 0.08;
-        cameraRef.current.lookAt.y = 8 - scrollY * 2;
-        cameraRef.current.lookAt.z = 0 - scrollY * 0.03;
+        cameraRef.current.lookAt.y = 8 + scrollY * 50;
+        cameraRef.current.lookAt.z = 0 + scrollY * 0.2;
         cameraRef.current.updateProjectionMatrix();
       }
     };
