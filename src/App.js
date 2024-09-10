@@ -4,6 +4,10 @@ import './App.css';
 import './index.css';
 import './styles/tailwind.css';
 import ThreeMain from './components/ThreeMain';
+import Prices from './components/pricing';
+import Slides from './components/slides';
+import AboutUs from './components/aboutus';
+import Footer from './components/footer';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -23,7 +27,12 @@ function App() {
     <div className='app flex-col'>
       <div className='header flex-row w-[100vw] bg-black min-h-[10vh] border-indigo-500 border-2'>
         <div className='logo'><img src='./logogastro.png'/></div>
-        <div className='menu'> lol</div>
+      </div>
+      <div className='nav-mobile'>
+        <a className="navmobmenituno" href=''>•••</a>
+        <a className="navmobmenitdue" href=''> Login </a>
+        <a className="navmobmenitdue" href=''> Register</a>
+        <a className="navmobmenitdue" href=''> Pricing </a>
       </div>
       <div className='main'>  
         <div className='three-main'> 
@@ -36,34 +45,11 @@ function App() {
           <br/> Click below to login or keep reading to learn more about our online services... 
           </p></div>
       </div>
-      <div className='login'><span><a href=''>Login</a></span></div>
-      <div className='login'><span><a href=''>Register now</a></span></div>
-      <div className='slide slideone'>
-        <div className='three-obj'></div>
-        <div className='content'>
-          <div className='title'></div>
-          <div className='description'></div>
-        </div>
-      </div>
-      <div className='slide slidetwo'>
-        <div className='three-obj'></div>
-        <div className='content'>
-          <div className='title'></div>
-          <div className='description'></div>
-        </div>
-      </div>
-      <div className='slide slidethree'>
-        <div className='three-obj'></div>
-        <div className='content'>
-          <div className='title'></div>
-          <div className='description'></div>
-        </div>
-      </div>
-      <div className='aboutus'>
-        <div className='scrollvalues'></div>
-        <div className='history'></div>
-      </div>
-      <div className='job'></div>
+      <Slides />
+      <Prices />
+      <AboutUs />
+      <div className='reviews'></div>
+      <Footer/>
     </div>
   );
 }
